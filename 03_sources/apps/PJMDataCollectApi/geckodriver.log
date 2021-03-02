@@ -1,0 +1,50 @@
+1614468886036	geckodriver	INFO	Listening on 127.0.0.1:49507
+1614468886042	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile9l9gCN"
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1614468890118	Marionette	INFO	Listening on port 33705
+1614468890203	Marionette	WARN	TLS certificate errors will be ignored for this session
+1614468921591	Marionette	INFO	Stopped listening on port 33705
+1614468932330	geckodriver	INFO	Listening on 127.0.0.1:57879
+1614468932335	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilet7BuqO"
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1614468936862	Marionette	INFO	Listening on port 43957
+1614468936930	Marionette	WARN	TLS certificate errors will be ignored for this session
+1614468968045	Marionette	INFO	Stopped listening on port 43957
+1614468978813	geckodriver	INFO	Listening on 127.0.0.1:51341
+1614468978818	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilepFlopL"
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1614468983293	Marionette	INFO	Listening on port 32877
+1614468983381	Marionette	WARN	TLS certificate errors will be ignored for this session
+1614469014722	Marionette	INFO	Stopped listening on port 32877
+1614469025493	geckodriver	INFO	Listening on 127.0.0.1:41689
+1614469025497	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilehP05F2"
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1614469029768	Marionette	INFO	Listening on port 39685
+1614469029887	Marionette	WARN	TLS certificate errors will be ignored for this session
+1614469062955	Marionette	INFO	Stopped listening on port 39685
+1614469073735	geckodriver	INFO	Listening on 127.0.0.1:37729
+1614469073740	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofiletHyHjr"
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1614469077856	Marionette	INFO	Listening on port 38085
+1614469077924	Marionette	WARN	TLS certificate errors will be ignored for this session
+1614469109420	Marionette	INFO	Stopped listening on port 38085
+1614469120267	geckodriver	INFO	Listening on 127.0.0.1:40445
+1614469120272	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileZRbGWX"
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1614469124542	Marionette	INFO	Listening on port 42169
+1614469124654	Marionette	WARN	TLS certificate errors will be ignored for this session
+1614469155278	Marionette	INFO	Stopped listening on port 42169
+1614469166090	geckodriver	INFO	Listening on 127.0.0.1:53513
+1614469166100	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilehRU3re"
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1614469170423	Marionette	INFO	Listening on port 41607
+1614469170557	Marionette	WARN	TLS certificate errors will be ignored for this session
+1614469211888	Marionette	INFO	Stopped listening on port 41607
+1614469222573	geckodriver	INFO	Listening on 127.0.0.1:57245
+1614469222578	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileJINJ5Q"
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1614469226688	Marionette	INFO	Listening on port 44687
+1614469226771	Marionette	WARN	TLS certificate errors will be ignored for this session
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.

@@ -1,0 +1,186 @@
+version: "3"
+
+services:
+  namenode:
+    image: bde2020/hadoop-namenode:2.0.0-hadoop3.2.1-java8
+    container_name: namenode
+    hostname: namenode
+    restart: always
+    ports:
+      - 9870:9870
+      - 9000:9000
+    networks:
+      prj_network:
+        ipv4_address: 172.23.0.20
+    volumes:
+      - hadoop_namenode:/hadoop/dfs/name
+    environment:
+      - CLUSTER_NAME=test
+    env_file:
+      - ./hadoop.env
+
+  datanode:
+    image: bde2020/hadoop-datanode:2.0.0-hadoop3.2.1-java8
+    container_name: datanode
+    hostname: datanode
+    restart: always
+    networks:
+      prj_network:
+        ipv4_address: 172.23.0.21
+    ports:
+      - 9864:9864
+    volumes:
+      - hadoop_datanode:/hadoop/dfs/data
+    environment:
+      SERVICE_PRECONDITION: "namenode:9870"
+    env_file:
+      - ./hadoop.env
+  
+  datanode2:
+    image: bde2020/hadoop-datanode:2.0.0-hadoop3.2.1-java8
+    container_name: datanode2
+    hostname: datanode2
+    restart: always
+    networks:
+      prj_network:
+        ipv4_address: 172.23.0.22
+    ports:
+      - 9865:9864
+    volumes:
+      - hadoop_datanode2:/hadoop/dfs/data
+    environment:
+      SERVICE_PRECONDITION: "namenode:9870"
+    env_file:
+      - ./hadoop.env
+  
+  datanode3:
+    image: bde2020/hadoop-datanode:2.0.0-hadoop3.2.1-java8
+    container_name: datanode3
+    hostname: datanode3
+    restart: always
+    networks:
+      prj_network:
+        ipv4_address: 172.23.0.23
+    ports:
+      - 9866:9864
+    volumes:
+      - hadoop_datanode3:/hadoop/dfs/data
+    environment:
+      SERVICE_PRECONDITION: "namenode:9870"
+    env_file:
+      - ./hadoop.env
+  
+  resourcemanager:
+    image: bde2020/hadoop-resourcemanager:2.0.0-hadoop3.2.1-java8
+    container_name: resourcemanager
+    hostname: resourcemanager
+    networks:
+      prj_network:
+        ipv4_address: 172.23.0.10
+    restart: always
+    environment:
+      SERVICE_PRECONDITION: "namenode:9000 namenode:9870 datanode:9864"
+    env_file:
+      - ./hadoop.env
+
+  nodemanager:
+    image: bde2020/hadoop-nodemanager:2.0.0-hadoop3.2.1-java8
+    container_name: nodemanager
+    hostname: nodemanager
+    networks:
+      prj_network:
+        ipv4_address: 172.23.0.11
+    restart: always
+    environment:
+      SERVICE_PRECONDITION: "namenode:9000 namenode:9870 datanode:9864 resourcemanager:8088"
+    env_file:
+      - ./hadoop.env
+  
+  historyserver:
+    image: bde2020/hadoop-historyserver:2.0.0-hadoop3.2.1-java8
+    container_name: historyserver
+    networks:
+      prj_network:
+        ipv4_address: 172.23.0.12
+    restart: always
+    environment:
+      SERVICE_PRECONDITION: "namenode:9000 namenode:9870 datanode:9864 resourcemanager:8088"
+    volumes:
+      - hadoop_historyserver:/hadoop/yarn/timeline
+    env_file:
+      - ./hadoop.env
+  
+  
+  cassandra:
+    image: cassandra
+    container_name: cassandra
+    restart: always
+    networks:
+      prj_network:
+        ipv4_address: 172.23.0.31
+    ports:
+      - 9042:9042
+    volumes:
+      - cassandra:/var/lib/cassandra
+
+  cassandra2:
+    image: cassandra
+    container_name: cassandra2
+    environment:
+      - CASSANDRA_SEEDS=cassandra
+    restart: always
+    networks:
+      prj_network:
+        ipv4_address: 172.23.0.32
+    ports:
+      - 9043:9042
+    volumes:
+      - cassandra2:/var/lib/cassandra
+    
+  cassandra3:
+    image: cassandra
+    container_name: cassandra3
+    environment:
+      - CASSANDRA_SEEDS=cassandra
+    restart: always
+    networks:
+      prj_network:
+        ipv4_address: 172.23.0.33
+    ports:
+      - 9044:9042
+    volumes:
+      - cassandra3:/var/lib/cassandra
+    
+    
+  spark_jupyter:
+    image: jupyter/pyspark-notebook
+    container_name: spark_jupyter
+    restart: always
+    networks:
+      prj_network:
+        ipv4_address: 172.23.0.40
+    ports:
+      - 7077:7077
+      - 9888:8888
+    volumes:
+      - spark_jupyter:/home/jovyan/work
+    
+  
+volumes:
+  hadoop_namenode: 
+  hadoop_datanode: 
+  hadoop_datanode2:
+  hadoop_datanode3: 
+  hadoop_historyserver: 
+  cassandra: 
+  cassandra2: 
+  cassandra3: 
+  spark_jupyter:
+
+networks:
+  prj_network:
+    ipam:
+      driver: default
+      config:
+      - subnet: 172.23.0.0/16
+
